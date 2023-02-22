@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function WeatherView({ weatherData }) {
   const { weather, main, name, sys, wind } = weatherData;
@@ -20,29 +21,50 @@ export default function WeatherView({ weatherData }) {
       </div>
 
       {/* Bottom of the Layout */}
-      <div className="bg-black/75 p-8 rounded-lg">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delayChildren: 0.3, staggerChildren: 0.2 }}
+        viewport={{ once: true }}
+        className="bg-black/75 p-8 rounded-lg"
+      >
         <p className="text-xl text-center pb-6">
           Weather in {name}, {sys.country}
         </p>
         <div className="flex justify-between text-center">
-          <div>
+          <motion.div
+            initial={{ x: -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
             <p>Feels like </p>
             <p className="text-2xl font-bold">
               {main.feels_like.toFixed(0)}&#176;
             </p>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
             <p>Humidity</p>
             <p className="text-2xl font-bold">{main.humidity}%</p>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div
+            initial={{ x: 20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
             <p>Winds</p>
             <p className="text-2xl font-bold">
               {(wind.speed * 1.609344).toFixed(0)} km/h
             </p>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
