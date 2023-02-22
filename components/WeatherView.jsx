@@ -33,8 +33,8 @@ export default function WeatherView({ weatherData }) {
         </p>
         <div className="flex justify-between text-center">
           <motion.div
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
@@ -53,8 +53,8 @@ export default function WeatherView({ weatherData }) {
             <p className="text-2xl font-bold">{main.humidity}%</p>
           </motion.div>
           <motion.div
-            initial={{ x: 20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
