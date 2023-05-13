@@ -4,7 +4,7 @@ import { Inter } from '@next/font/google';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BsSearch } from 'react-icons/bs';
-import WeatherView from 'components/WeatherView';
+import WeatherView from 'components/WeatherView/WeatherView';
 import { PulseLoader } from 'react-spinners';
 import SearchForm from '../../components/SearchForm';
 import { ToastContainer, toast } from 'react-toastify';

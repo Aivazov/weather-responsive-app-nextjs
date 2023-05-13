@@ -1,13 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import MoreInfoView from './MoreInfoView/MoreInfoView';
+import WeatherHeader from './WeatherHeader/WeatherHeader'
 
 export default function WeatherView({ weatherData }) {
   const { weather, main, name, sys, wind } = weatherData;
   return (
     <div className="relative flex flex-col justify-between max-w-[500px] w-full h-[85vh] m-auto p-4 text-gray-300 z-10 overflow-auto scrollbar-hide">
       {/* Top of the Layout */}
-      <div className="relative flex justify-between pt-12">
+      <WeatherHeader weatherData={weatherData} />
+
+      {/* <div className="relative flex justify-between pt-12">
         <div className="flex flex-col items-center">
           <Image
             src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
@@ -18,10 +22,12 @@ export default function WeatherView({ weatherData }) {
           <p className="text-3xl">{weather[0].main}</p>
         </div>
         <p className="text-9xl">{main.temp.toFixed()}&#176;</p>
-      </div>
+      </div> */}
 
       {/* Bottom of the Layout */}
-      <motion.div
+      <MoreInfoView weatherData={weatherData} />
+
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delayChildren: 0.3, staggerChildren: 0.2 }}
@@ -64,7 +70,7 @@ export default function WeatherView({ weatherData }) {
             </p>
           </motion.div>
         </div>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 }

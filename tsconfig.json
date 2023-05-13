@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/WeatherView.jsx", "src/pages/index.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/WeatherView/WeatherView.jsx", "src/pages/index.jsx"],
   "exclude": ["node_modules"]
 }
