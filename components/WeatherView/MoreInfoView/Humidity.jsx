@@ -8,7 +8,7 @@ export default function Humidity({ main }) {
       initial="hidden"
       whileInView="visible"
       variants={infoAnimation}
-      custom={3}
+      custom={2.75}
       viewport={{ once: true }}
     >
       <p>Humidity</p>

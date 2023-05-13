@@ -8,7 +8,7 @@ export default function Winds({ wind }) {
       initial="hidden"
       whileInView="visible"
       variants={infoAnimation}
-      custom={4}
+      custom={3.5}
       viewport={{ once: true }}
     >
       <p>Winds</p>
