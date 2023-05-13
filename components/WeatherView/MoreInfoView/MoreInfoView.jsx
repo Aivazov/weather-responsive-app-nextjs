@@ -17,6 +17,7 @@ export default function MoreInfoView({ weatherData }) {
       <p className="text-xl text-center pb-6">
         Weather in {name}, {sys.country}
       </p>
+      
       <div className="flex justify-between text-center">
         <FeelsLike {...weatherData} />
 
