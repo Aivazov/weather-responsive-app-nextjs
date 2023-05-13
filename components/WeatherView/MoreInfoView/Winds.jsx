@@ -1,12 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import infoAnimation from '../../helpers/infoAnimation';
 
 export default function Winds({ wind }) {
   return (
     <motion.div
-      initial={{ y: 20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1 }}
+      initial="hidden"
+      whileInView="visible"
+      variants={infoAnimation}
+      custom={4}
       viewport={{ once: true }}
     >
       <p>Winds</p>

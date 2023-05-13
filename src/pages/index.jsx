@@ -9,8 +9,6 @@ import fetchWeather from './api/fetchWeather';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// const API_KEY = '61660147351f6b748481fd295b55cbb1';
-
 export default function Home() {
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState({});
@@ -22,24 +20,6 @@ export default function Home() {
       return;
     }
     setIsLoading(true);
-
-    // const weatherAPI = () => {
-    //   axios
-    //     .get(
-    //       `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`
-    //     )
-    //     .then((response) => {
-    //       setWeather(response.data);
-    //     })
-    //     .catch((error) => {
-    //       setError(error);
-    //       toast.error('The city was not found. Please try again');
-    //     })
-    //     .finally(() => {
-    //       setIsLoading(false);
-    //       setError(null);
-    //     });
-    // };
 
     fetchWeather(city)
       .then((res) => {
@@ -53,17 +33,22 @@ export default function Home() {
         setIsLoading(false);
         setError(null);
       });
-    // weatherAPI();
   }, [city]);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!e.target.elements.searchForm.value) {
+    const searchValue = e.target.elements.searchForm.value;
+
+    if (!searchValue) {
       return toast.warning('Please enter a city name');
     }
-    setCity(e.target.elements.searchForm.value.trim().toLowerCase());
+
+    if (searchValue.trim().toLowerCase() === city) return;
+
+    setCity(searchValue.trim().toLowerCase());
     setWeather({});
     e.target.elements.searchForm.value = '';
+    // e.target.elements.searchForm.value = '';
   };
 
   return (
@@ -75,22 +60,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* overlay */}
-
+      {/* app body */}
       <Overlay />
-      {/* <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/40 z-[1]" /> */}
-
-      {/* bg-image */}
 
       <Background />
-      {/* <Image
-        src="https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/8/2022/10/CLI371.weather.double_rainbow_cammie_czuchnicki-920x614.jpg"
-        alt="/"
-        layout="fill"
-        className="object-cover"
-      /> */}
-
-      {/* search form */}
 
       <SearchForm onSubmitAction={onSubmit} />
 

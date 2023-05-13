@@ -1,12 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import infoAnimation from '../../helpers/infoAnimation';
 
 export default function FeelsLike({ main }) {
   return (
     <motion.div
-      initial={{ y: 20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1 }}
+      initial="hidden"
+      whileInView="visible"
+      variants={infoAnimation}
+      custom={2}
       viewport={{ once: true }}
     >
       <p>Feels like </p>

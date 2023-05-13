@@ -10,7 +10,7 @@ export default function MoreInfoView({ weatherData }) {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, delayChildren: 0.3, staggerChildren: 0.2 }}
+      transition={{ duration: 2, delayChildren: 0.3, staggerChildren: 0.2 }}
       viewport={{ once: true }}
       className="bg-black/75 p-8 rounded-lg"
     >
