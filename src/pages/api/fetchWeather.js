@@ -1,5 +1,4 @@
 import axios from 'axios';
-// const API_KEY = '61660147351f6b748481fd295b55cbb1';
 
 const weatherAPI = (city) => {
   return axios.get(
